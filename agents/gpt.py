@@ -1,11 +1,11 @@
 import os
 import time
-import openai
+from openai import OpenAI
 from types import SimpleNamespace
 
 class GPT3BaseAgent():
     def __init__(self, kwargs: dict):
-        openai.api_key = os.getenv('OPENAI_API_KEY')
+        self.client = OpenAI(api_key="OPENAI_API_KEY")
         self.args = SimpleNamespace(**kwargs)
         self._set_default_args()
 
@@ -26,7 +26,7 @@ class GPT3BaseAgent():
     def generate(self, prompt):
         while True:
             try:
-                completion = openai.Completion.create(
+                completion = self.client.Completion.create(
                     engine=self.args.engine,
                     prompt=prompt,
                     temperature=self.args.temperature,
@@ -39,7 +39,7 @@ class GPT3BaseAgent():
                     echo=self.args.echo if hasattr(self.args, 'echo') else False
                 )
                 break
-            except (RuntimeError, openai.error.RateLimitError, openai.error.ServiceUnavailableError, openai.error.APIError, openai.error.APIConnectionError) as e:
+            except Exception as e:
                 print("Error: {}".format(e))
                 time.sleep(2)
                 continue
@@ -47,7 +47,7 @@ class GPT3BaseAgent():
         return completion
 
     def parse_basic_text(self, response):
-        output = response['choices'][0]['text'].strip()
+        output = response.choices[0].text.strip()
 
         return output
 
@@ -84,12 +84,12 @@ class ConversationalGPTBaseAgent(GPT3BaseAgent):
     def generate(self, prompt):
         while True:
             try:
-                completion = openai.ChatCompletion.create(
+                completion = self.client.chat.completions.create(
                     model=self.args.model,
                     messages=[{"role": "user", "content": "{}".format(prompt)}]
                 )
                 break
-            except (openai.error.APIError, openai.error.RateLimitError) as e: 
+            except Exception as e: 
                 print("Error: {}".format(e))
                 time.sleep(2)
                 continue
@@ -97,6 +97,12 @@ class ConversationalGPTBaseAgent(GPT3BaseAgent):
         return completion
 
     def parse_basic_text(self, response):
-        output = response['choices'][0].message.content.strip()
-
+        output = response.choices[0].message.content.strip()
         return output
+    
+    def batch_interact(self, batch_texts):
+        responses = []
+        for text in batch_texts:
+            response = self.interact(text)
+            responses.append(response)
+        return responses
