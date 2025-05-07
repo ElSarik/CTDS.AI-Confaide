@@ -19,6 +19,7 @@ cf.use_style('monokai')
 from agents.gpt import GPT3BaseAgent, ConversationalGPTBaseAgent
 import agents.huggingface as hfa
 import agents.deepseek_api as deepseek_api
+import agents.claude as claude_api
 
 PROJECT_HOME = Path(__file__).parent.resolve()
 EVAL_DIR_PATH = os.path.join(PROJECT_HOME, 'eval_results')
@@ -100,6 +101,8 @@ class EvalAgent():
             model = hfa.Llama2Agent(self.args)
         elif self.args.model.startswith('deepseek'):
             model = deepseek_api.DeepseekAPIAgent({'model': self.args.model, 'temperature': 1, 'top_p': 1})
+        elif self.args.model.startswith('claude'):
+            model = claude_api.ClaudeAgent({'model': self.args.model, 'temperature': 1, 'top_p': 1})
         else:
             raise NotImplementedError
 
@@ -735,7 +738,7 @@ if __name__ == '__main__':
     parser.add_argument('--model',
                         type=str,
                         default='gpt-3.5-turbo',
-                        choices=['gpt-4o-2024-08-06', 'gpt-3.5-turbo', 'o4-mini-2025-04-16', 'deepseek-chat', 'deepseek-reasoner'],
+                        choices=['gpt-4o-2024-08-06', 'gpt-3.5-turbo', 'o4-mini-2025-04-16', 'deepseek-chat', 'deepseek-reasoner', 'claude-3-7-sonnet-20250219'],
                         help='name of the model to run evaluation',
     )
     parser.add_argument('--prompt-header',

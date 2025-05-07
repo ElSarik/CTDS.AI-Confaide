@@ -9,6 +9,7 @@ dependencies:
   - pip=20.2.3
   - pip:
     - openai==0.27.6
+    - anthropic==0.50.0
     - transformers==4.34.1
     - tokenizers==0.14.1
     - sentence-transformers==2.2.2
