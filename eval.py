@@ -89,6 +89,8 @@ class EvalAgent():
             model = GPT3BaseAgent({'engine': self.args.model, 'temperature': 1, 'max_tokens': 365, 'top_p': 1, 'frequency_penalty': 0.0, 'presence_penalty': 0.0})
         elif self.args.model.startswith("gpt-"):
             model = ConversationalGPTBaseAgent({'model': self.args.model, 'temperature': 1, 'top_p': 1, 'frequency_penalty': 0.0, 'presence_penalty': 0.0})
+        elif self.args.model.startswith("o4"):
+            model = ConversationalGPTBaseAgent({'model': self.args.model, 'temperature': 1, 'top_p': 1, 'frequency_penalty': 0.0, 'presence_penalty': 0.0})
         elif self.args.model.startswith('flan-t5'):
             model = hfa.FlanT5Agent(self.args)
         elif self.args.model.startswith('flan-ul2'):
@@ -729,8 +731,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='arguments for evaluating models')
     parser.add_argument('--model',
                         type=str,
-                        default='gpt-3.5-turbo-0613',
-                        choices=['gpt-4-0314', 'gpt-4-0613', 'gpt-3.5-turbo-0301', 'gpt-3.5-turbo-0613', 'text-davinci-002', 'text-davinci-003', 'text-curie-001', 'flan-ul2', 'flan-t5-xxl', 'Llama-2-13b-chat-hf'],
+                        default='gpt-3.5-turbo',
+                        choices=['gpt-4o-2024-08-06', 'gpt-3.5-turbo', 'o4-mini-2025-04-16'],
+                        # choices=['gpt-4-0314', 'gpt-4-0613', 'gpt-3.5-turbo-0301', 'gpt-3.5-turbo-0613', 'text-davinci-002', 'text-davinci-003', 'text-curie-001', 'flan-ul2', 'flan-t5-xxl', 'Llama-2-13b-chat-hf'],
                         help='name of the model to run evaluation',
     )
     parser.add_argument('--prompt-header',
