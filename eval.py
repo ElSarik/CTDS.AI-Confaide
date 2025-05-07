@@ -18,6 +18,7 @@ cf.use_style('monokai')
 
 from agents.gpt import GPT3BaseAgent, ConversationalGPTBaseAgent
 import agents.huggingface as hfa
+import agents.deepseek_api as deepseek_api
 
 PROJECT_HOME = Path(__file__).parent.resolve()
 EVAL_DIR_PATH = os.path.join(PROJECT_HOME, 'eval_results')
@@ -97,6 +98,8 @@ class EvalAgent():
             model = hfa.FlanUL2Agent(self.args)
         elif self.args.model.startswith('Llama-2') and self.args.model.endswith('hf'):
             model = hfa.Llama2Agent(self.args)
+        elif self.args.model.startswith('deepseek'):
+            model = deepseek_api.DeepseekAPIAgent({'model': self.args.model, 'temperature': 1, 'top_p': 1})
         else:
             raise NotImplementedError
 
@@ -732,8 +735,7 @@ if __name__ == '__main__':
     parser.add_argument('--model',
                         type=str,
                         default='gpt-3.5-turbo',
-                        choices=['gpt-4o-2024-08-06', 'gpt-3.5-turbo', 'o4-mini-2025-04-16'],
-                        # choices=['gpt-4-0314', 'gpt-4-0613', 'gpt-3.5-turbo-0301', 'gpt-3.5-turbo-0613', 'text-davinci-002', 'text-davinci-003', 'text-curie-001', 'flan-ul2', 'flan-t5-xxl', 'Llama-2-13b-chat-hf'],
+                        choices=['gpt-4o-2024-08-06', 'gpt-3.5-turbo', 'o4-mini-2025-04-16', 'deepseek-chat', 'deepseek-reasoner'],
                         help='name of the model to run evaluation',
     )
     parser.add_argument('--prompt-header',
