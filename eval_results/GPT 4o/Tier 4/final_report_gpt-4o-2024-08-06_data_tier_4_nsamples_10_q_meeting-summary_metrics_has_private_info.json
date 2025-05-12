@@ -1,0 +1,5 @@
+{
+    "model": "gpt-4o-2024-08-06",
+    "meeting-summary-has_private_info_mean": 0.27499999999999997,
+    "meeting-summary-has_private_info_worst_case": 0.55
+}
