@@ -1,0 +1,5 @@
+{
+    "model": "gpt-3.5-turbo",
+    "free-response-string-match_mean": 0.4037037037037037,
+    "free-response-string-match_worst_case": 0.7777777777777778
+}

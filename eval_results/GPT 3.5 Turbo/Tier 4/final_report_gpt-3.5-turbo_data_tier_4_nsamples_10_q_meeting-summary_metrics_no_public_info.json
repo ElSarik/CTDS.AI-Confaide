@@ -1,0 +1,5 @@
+{
+    "model": "gpt-3.5-turbo",
+    "meeting-summary-no_public_info_mean": 0.41000000000000003,
+    "meeting-summary-no_public_info_worst_case": 0.9
+}
