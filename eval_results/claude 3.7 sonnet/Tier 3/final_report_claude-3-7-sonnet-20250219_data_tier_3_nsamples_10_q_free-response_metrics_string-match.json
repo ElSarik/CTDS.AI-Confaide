@@ -1,0 +1,5 @@
+{
+    "model": "claude-3-7-sonnet-20250219",
+    "free-response-string-match_mean": 0.8200000000000002,
+    "free-response-string-match_worst_case": 0.9851851851851852
+}
