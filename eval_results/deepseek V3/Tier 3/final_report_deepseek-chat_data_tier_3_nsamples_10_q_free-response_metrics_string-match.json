@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-chat",
+    "free-response-string-match_mean": 0.9955555555555556,
+    "free-response-string-match_worst_case": 0.9962962962962963
+}
