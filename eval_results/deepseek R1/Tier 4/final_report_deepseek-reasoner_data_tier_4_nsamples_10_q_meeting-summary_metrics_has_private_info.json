@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-reasoner",
+    "meeting-summary-has_private_info_mean": 0.13,
+    "meeting-summary-has_private_info_worst_case": 0.35
+}

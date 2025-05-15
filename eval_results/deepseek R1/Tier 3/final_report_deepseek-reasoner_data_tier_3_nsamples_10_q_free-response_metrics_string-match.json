@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-reasoner",
+    "free-response-string-match_mean": 0.8344444444444444,
+    "free-response-string-match_worst_case": 0.8407407407407408
+}

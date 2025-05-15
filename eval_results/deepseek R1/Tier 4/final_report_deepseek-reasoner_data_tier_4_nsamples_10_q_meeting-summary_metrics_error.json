@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-reasoner",
+    "meeting-summary-error_mean": 0.32999999999999996,
+    "meeting-summary-error_worst_case": 0.9
+}
