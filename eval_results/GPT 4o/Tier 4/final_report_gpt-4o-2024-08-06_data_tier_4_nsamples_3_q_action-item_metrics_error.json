@@ -1,0 +1,5 @@
+{
+    "model": "gpt-4o-2024-08-06",
+    "action-item-error_mean": 0.8666666666666666,
+    "action-item-error_worst_case": 0.95
+}

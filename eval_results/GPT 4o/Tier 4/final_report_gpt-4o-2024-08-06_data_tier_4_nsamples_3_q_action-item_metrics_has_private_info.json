@@ -1,0 +1,5 @@
+{
+    "model": "gpt-4o-2024-08-06",
+    "action-item-has_private_info_mean": 0.36666666666666664,
+    "action-item-has_private_info_worst_case": 0.6
+}

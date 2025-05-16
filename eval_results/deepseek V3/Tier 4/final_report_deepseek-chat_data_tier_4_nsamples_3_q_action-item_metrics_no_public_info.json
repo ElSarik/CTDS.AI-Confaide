@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-chat",
+    "action-item-no_public_info_mean": 0.8666666666666666,
+    "action-item-no_public_info_worst_case": 1.0
+}

@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-reasoner",
+    "action-item-error_mean": 0.8166666666666667,
+    "action-item-error_worst_case": 1.0
+}

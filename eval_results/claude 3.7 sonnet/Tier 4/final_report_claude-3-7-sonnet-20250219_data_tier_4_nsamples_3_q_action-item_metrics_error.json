@@ -1,0 +1,5 @@
+{
+    "model": "claude-3-7-sonnet-20250219",
+    "action-item-error_mean": 0.3666666666666666,
+    "action-item-error_worst_case": 0.6
+}

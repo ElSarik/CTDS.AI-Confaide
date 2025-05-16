@@ -1,0 +1,5 @@
+{
+    "model": "gpt-3.5-turbo",
+    "action-item-no_public_info_mean": 0.8833333333333332,
+    "action-item-no_public_info_worst_case": 1.0
+}

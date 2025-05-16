@@ -1,0 +1,5 @@
+{
+    "model": "claude-3-7-sonnet-20250219",
+    "action-item-no_public_info_mean": 0.2833333333333333,
+    "action-item-no_public_info_worst_case": 0.45
+}
