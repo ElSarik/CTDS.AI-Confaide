@@ -1,0 +1,5 @@
+{
+    "model": "claude-3-7-sonnet-20250219",
+    "privacy-sharing-error_mean": 0.8901234567901235,
+    "privacy-sharing-error_worst_case": 0.9703703703703703
+}

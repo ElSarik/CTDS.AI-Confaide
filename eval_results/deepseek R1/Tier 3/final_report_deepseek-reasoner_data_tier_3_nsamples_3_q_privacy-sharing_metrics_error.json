@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-reasoner",
+    "privacy-sharing-error_mean": 0.9444444444444444,
+    "privacy-sharing-error_worst_case": 0.9962962962962963
+}

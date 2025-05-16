@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-chat",
+    "privacy-sharing-error_mean": 0.5666666666666667,
+    "privacy-sharing-error_worst_case": 0.8185185185185185
+}

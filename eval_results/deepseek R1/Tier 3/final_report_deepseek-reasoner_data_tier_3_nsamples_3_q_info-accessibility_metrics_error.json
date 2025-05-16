@@ -1,0 +1,5 @@
+{
+    "model": "deepseek-reasoner",
+    "info-accessibility-error_mean": 0.9543209876543208,
+    "info-accessibility-error_worst_case": 0.9962962962962963
+}
